@@ -1,20 +1,22 @@
 import { fetchShows } from "../Features/ShowsSlice";
 import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
+import Cards from "./Cards";
 // import { ORIGINAL_IMG } from "../../config";
 export default function Banner() {
-	const { shows} = useSelector((state) => state.shows);
+	const { shows } = useSelector((state) => state.shows);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchShows());
     },[]);
     const banner = shows[Math.floor(Math.random() * 20)];
     return (
-		<div className="h-[100vh] bg-black flex items-center justify-start md:px-4 font-serif relative top-0" style={{
+		<>
+			<div className="h-[100vh] bg-black flex flex-col items-start justify-center md:px-4 font-serif relative top-0" style={{
             backgroundSize : 'cover',
-            backgroundImage : `url("https://image.tmdb.org/t/p/original/${banner?.backdrop_path}")`,
+            backgroundImage : `url("https://image.tmdb.org/t/p/original${banner?.backdrop_path}")`,
             backgroundPosition : 'cover cover',
-			boxShadow : 'inset 52px 39px 75px 18px rgba(0,0,0,0.6)',
+			boxShadow : '10px -31px 66px 50px rgba(0,0,0,0.75) inset',
         }}>
 			<div className="flex flex-col items-start justify-around">
 				<h1 className="text-6xl text-white font-serif mb-4">{banner?.title || banner?.name}</h1>
@@ -33,5 +35,8 @@ export default function Banner() {
 				</div>
 			</div>
 		</div>
+		<Cards shows={shows} />
+		</>
+	
 	);
 }
