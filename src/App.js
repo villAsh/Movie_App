@@ -11,12 +11,11 @@ function App() {
   return (
     <Provider store={store} >
       <Navbar />
-      <Router>
         <Routes>
           <Route path="/" element={<Banner />} />
           <Route path="media/:id" element={<SingleContent />} />
         </Routes>
-      </Router>
+  
     </Provider>
 
   );

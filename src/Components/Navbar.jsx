@@ -2,7 +2,7 @@ import logo from '../media/logo.png';
 import avatar from '../media/avatar.png';
 export default function Navbar(){
     return(
-        <div className="flex justify-between items-center w-full bg-black bg-opacity-40 absolute z-10 md:py-7 md:px-4">
+        <div className="flex justify-between items-center w-full bg-black z-10 md:py-5 md:px-4">
             <div>
                 <img src={logo} alt="logo" className='w-40 md:w-[20%]' />
             </div>
