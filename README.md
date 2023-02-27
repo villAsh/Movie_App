@@ -20,10 +20,13 @@
   <li>React Multi Carousel</li>
   <li>Axios</li>
 </ul>
+<h5>Live Demo <a href="https://movie-app-villash.vercel.app/" >View</a>
+
+
 
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
