@@ -1,6 +1,32 @@
+<h1>Netflix Clone</h1>
+<h3>This is a Movie App which is based on netflix UI</h3>
+<h3>Features : </h3>
+<ul>
+  <li>User can view trending shows.</li>
+  <li>User can view trending movies.</li>
+  <li>User can can view individual movie or show details.</li>
+  <li>User can view trailers of individual movies or shows.</li>
+  <li>User can add movies or shows into their Watch List.</li>
+  <li>User can delete movies or shows from Watch List.</li>
+</ul>
+
+<h3>Technologies Used : </h3>
+<ul>
+  <li>ReactJs</li>
+  <li>Tailwind CSS</li> 
+  <li>Redux Toolkit</li>
+  <li>React Routing</li>
+  <li>React player</li>
+  <li>React Multi Carousel</li>
+  <li>Axios</li>
+</ul>
+<h5>Live Demo <a href="https://movie-app-villash.vercel.app/" >View</a>
+
+
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
