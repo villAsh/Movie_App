@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchVideoData, fetchData, removeData } from "../Features/InfoSlice";
 import { useParams } from "react-router-dom";
 import { ORIGINAL_IMG } from "../config";
+import Shimmer from "./Shimmer";
 export default function SingleContent() {
     const { VideoData } = useSelector((state) => state.info);
     const { SingleData } = useSelector((state) => state.info);
@@ -25,8 +26,8 @@ export default function SingleContent() {
         }
     }, []);
 
-    return (
-        <div className="px-20 bg-black">
+    return SingleData.length !== 0 ? (
+        <div className="px-20 bg-black pb-10">
             <div className="text-center font-sans pt-5" >
                 <h1 className="text-5xl font-serif font-bold  pb-5 text-white">{SingleData?.name || SingleData?.title}</h1>
                 <img 
@@ -66,5 +67,7 @@ export default function SingleContent() {
             </div>
         </div>
 
+    ) : (
+        <Shimmer />
     );
 }
