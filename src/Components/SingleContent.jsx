@@ -1,7 +1,7 @@
 import ReactPlayer from "react-player/lazy";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchVideoData, fetchData } from "../Features/InfoSlice";
+import { fetchVideoData, fetchData, removeData } from "../Features/InfoSlice";
 import { useParams } from "react-router-dom";
 import { ORIGINAL_IMG } from "../config";
 export default function SingleContent() {
@@ -13,8 +13,16 @@ export default function SingleContent() {
     console.log("data...", SingleData)
 
     useEffect(() => {
-        dispatch(fetchVideoData(id));
-        dispatch(fetchData(id));
+      
+        setTimeout(() => {
+            dispatch(fetchVideoData(id));
+            dispatch(fetchData(id));
+        }, 2000);
+       
+
+        return () => {
+            dispatch(removeData());
+        }
     }, []);
 
     return (

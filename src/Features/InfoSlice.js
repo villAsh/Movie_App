@@ -24,6 +24,10 @@ const InfoSlice = createSlice({
         },
         setStatus(state,action){
             state.status = action.payload;
+        },
+        removeData(state){
+            state.SingleData = []
+            state.VideoData = []
         }
     }
 });
@@ -60,4 +64,4 @@ export function fetchVideoData(id){
 }
 
 export default InfoSlice.reducer;
-export const { setSingleData,setVideoData , setStatus} = InfoSlice.actions;
+export const { setSingleData,setVideoData , setStatus, removeData} = InfoSlice.actions;
