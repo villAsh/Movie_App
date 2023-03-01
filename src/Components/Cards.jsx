@@ -7,7 +7,7 @@ export default function Cards({ shows }) {
     const ShowSlider = shows.map((show) => {
         return (
         <Link to={`details/${show.id}`} key={show.id} >
-            <div className='py-5 px-5 flex items-center justify-center' >
+            <div className='py-5 px-5 flex items-center justify-center transform transition duration-400 hover:scale-110 hover:ease-in-out ' >
                 <img src={show ? `${CARD_IMG}${show?.poster_path}` : ''} alt="poster" className='w-60' />
             </div>
         </Link >
