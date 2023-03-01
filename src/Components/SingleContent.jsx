@@ -5,9 +5,11 @@ import { fetchVideoData, fetchData, removeData } from "../Features/InfoSlice";
 import { useParams } from "react-router-dom";
 import { ORIGINAL_IMG } from "../config";
 import Shimmer from "./Shimmer";
+import { addToList } from "../Features/ListSlice";
 export default function SingleContent() {
     const { VideoData } = useSelector((state) => state.info);
     const { SingleData } = useSelector((state) => state.info);
+    
     const { id } = useParams();
     const dispatch = useDispatch();
     console.log("Video...", VideoData);
@@ -25,7 +27,9 @@ export default function SingleContent() {
             dispatch(removeData());
         }
     }, []);
-
+    const handleClick = (media) =>{
+        dispatch(addToList(media));
+    }
     return SingleData.length !== 0 ? (
         <div className="px-20 bg-black pb-10">
             <div className="text-center font-sans pt-5" >
@@ -47,7 +51,7 @@ export default function SingleContent() {
                 ">
                     <span>Play</span>
                 </button>
-                <button 
+                <button onClick={() => handleClick(SingleData)}
                 className="py-1 px-7 rounded bg-white font-bold
                   hover:bg-slate-500 hover:bg-opacity-30 
                   hover:text-white hover:delay-100 

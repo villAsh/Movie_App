@@ -2,6 +2,7 @@ import { fetchShows } from "../Features/ShowsSlice";
 import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Cards from "./Cards";
+import { addToList } from "../Features/ListSlice";
 // import { ORIGINAL_IMG } from "../../config";
 export default function Banner() {
 	const { shows } = useSelector((state) => state.shows);
@@ -9,6 +10,9 @@ export default function Banner() {
     useEffect(() => {
         dispatch(fetchShows());
     },[]);
+	const hanldeClick = (media) => {
+		dispatch(addToList(media));
+	}
     const banner = shows[Math.floor(Math.random() * 20)];
     return (
 		<>
@@ -24,7 +28,8 @@ export default function Banner() {
 					<button className="bg-slate-500 bg-opacity-40 hover:bg-opacity-90 px-7 py-1 rounded-sm text-white">
 						<span>Play</span>
 					</button>
-					<button className="bg-slate-500 bg-opacity-40 hover:bg-opacity-90 px-7 py-1 rounded-sm text-white">
+					<button onClick={()=>hanldeClick(banner)} 
+					className="bg-slate-500 bg-opacity-40 hover:bg-opacity-90 px-7 py-1 rounded-sm text-white">
 						<span>Watch List</span>
 					</button>
 				</div>

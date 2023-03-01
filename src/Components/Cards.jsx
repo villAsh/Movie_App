@@ -6,7 +6,7 @@ export default function Cards({ shows }) {
     console.log("Card...", shows)
     const ShowSlider = shows.map((show) => {
         return (
-        <Link to={`media/${show.id}`} key={show.id} >
+        <Link to={`details/${show.id}`} key={show.id} >
             <div className='py-5 px-5 flex items-center justify-center' >
                 <img src={show ? `${CARD_IMG}${show?.poster_path}` : ''} alt="poster" className='w-60' />
             </div>

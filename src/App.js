@@ -14,7 +14,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Banner />} />
-          <Route path="media/:id" element={<SingleContent />} />
+          <Route path="details/:id" element={<SingleContent />} />
           <Route path="watchlist" element={<WatchList />}/>
         </Routes>
   
