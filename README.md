@@ -2,6 +2,7 @@
 <h3>This is a Movie App which is based on netflix UI</h3>
 <h3>Features : </h3>
 <ul>
+  <li>User can search for movie or show.</li>
   <li>User can view trending shows.</li>
   <li>User can view trending movies.</li>
   <li>User can can view individual movie or show details.</li>
@@ -19,6 +20,7 @@
   <li>React player</li>
   <li>React Multi Carousel</li>
   <li>Axios</li>
+  <li>React Skeleton</li>
 </ul>
 <h5>Live Demo <a href="https://movie-app-villash.vercel.app/" >View</a>
 
