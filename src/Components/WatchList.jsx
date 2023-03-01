@@ -13,13 +13,17 @@ export default function WatchList() {
             </div>
         </Link>
     ));
-    return (
-        <div className="bg-black md:h-[89.3vh] px-5">
+    return WatchList.length !== 0 ? (
+        <div className="bg-black md:min-h-[89.3vh] px-5">
             <h1 className="text-white text-4xl font-semibold font-serif">My List</h1>
-            <div className="grid grid-cols-4 gap-x-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4">
                 {list}
             </div>
         </div>
 
+    ) : (
+        <div className="bg-black md:min-h-[89.3vh] px-5 flex items-center justify-center">
+            <h1 className="text-white text-4xl font-semibold font-serif">List is Empty</h1>
+        </div>
     );
 }
