@@ -9,18 +9,19 @@ import { addToList } from "../Features/ListSlice";
 export default function SingleContent() {
     const { VideoData } = useSelector((state) => state.info);
     const { SingleData } = useSelector((state) => state.info);
-    
     const { id } = useParams();
+
     const dispatch = useDispatch();
-    console.log("Video...", VideoData);
-    console.log("data...", SingleData)
+    
+    // console.log("Video...", VideoData);
+    // console.log("data...", SingleData)
 
     useEffect(() => {
       
         setTimeout(() => {
             dispatch(fetchVideoData(id));
             dispatch(fetchData(id));
-        }, 2000);
+        }, 1000);
        
 
         return () => {
