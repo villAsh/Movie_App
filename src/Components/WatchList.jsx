@@ -18,7 +18,7 @@ export default function WatchList() {
         dispatch(clearList());
     }
     const list = WatchList.map((media) => (
-        <Link to={`/details/${media.id}`} >
+        <Link to={`/details/${media.id}`} key={media.id} >
             <div className="p-5 transform transition duration-500 hover:scale-110 hover:ease-in-out">
                 <img src={`${CARD_IMG}${media?.poster_path}`} alt="poster" />
 
@@ -34,7 +34,7 @@ export default function WatchList() {
     ));
     return WatchList.length !== 0 ? (
         <>
-            <div className="bg-black md:min-h-[89.3vh] px-5">
+            <div className="bg-black md:min-h-[90.5vh] px-5">
                 <div className="flex justify-between items-center py-5">
                     <h1 className="text-white text-4xl font-semibold font-serif">My List</h1>
                     <button onClick={handleClear}
@@ -54,7 +54,7 @@ export default function WatchList() {
 
         </>
     ) : (
-        <div className="bg-black md:min-h-[89.3vh] px-5 flex items-center justify-center">
+        <div className="bg-black md:min-h-[90.5vh] px-5 flex items-center justify-center">
             <h1 className="text-white text-4xl font-semibold font-serif">List is Empty</h1>
         </div>
     );

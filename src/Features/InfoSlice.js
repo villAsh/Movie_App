@@ -32,11 +32,11 @@ const InfoSlice = createSlice({
     }
 });
 
-export function fetchData(id){
+export function fetchData(id,type){
     return async function fetchDataThunk(dispatch){
         dispatch(setStatus(STATUS.LOADING));
         try{
-            const res = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`);
+            const res = await axios.get(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}`);
             const data = await res.data;
             dispatch(setSingleData(data));
             dispatch(setStatus(STATUS.IDLE));
@@ -48,11 +48,11 @@ export function fetchData(id){
     }
 }
 
-export function fetchVideoData(id){
+export function fetchVideoData(id,type){
     return async function fetchSingleDataThunk(dispatch){
         dispatch(setStatus(STATUS.LOADING));
         try{
-            const res = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${API_KEY}&language=en-US`);
+            const res = await axios.get(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${API_KEY}&language=en-US`);
             const data = await res.data.results[0];
             dispatch(setVideoData(data));
             dispatch(setStatus(STATUS.IDLE));
@@ -63,5 +63,33 @@ export function fetchVideoData(id){
     }   
 }
 
+// export function fetchDataMovie(id){
+//     return async function fetchSingleDataThunk(dispatch){
+//         dispatch(setStatus(STATUS.LOADING));
+//         try{
+//             const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
+//             const data = await res.data.results[0];
+//             dispatch(setVideoData(data));
+//             dispatch(setStatus(STATUS.IDLE));
+//         }catch(error){
+//             console.log(error);
+//             dispatch(setStatus(STATUS.ERROR));
+//         }
+//     } 
+// }
+// export function fetchVideoDataMovie(id){
+//     return async function fetchSingleDataThunk(dispatch){
+//         dispatch(setStatus(STATUS.LOADING));
+//         try{
+//             const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
+//             const data = await res.data.results[0];
+//             dispatch(setVideoData(data));
+//             dispatch(setStatus(STATUS.IDLE));
+//         }catch(error){
+//             console.log(error);
+//             dispatch(setStatus(STATUS.ERROR));
+//         }
+//     }  
+// }
 export default InfoSlice.reducer;
 export const { setSingleData,setVideoData , setStatus, removeData} = InfoSlice.actions;

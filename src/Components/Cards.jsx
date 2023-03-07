@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CARD_IMG } from '../config';
-export default function Cards({ shows }) {
-    console.log("Card...", shows)
-    const ShowSlider = shows.map((show) => {
+export default function Cards({ media,type }) {
+    console.log("Card...", media)
+    const ShowSlider = media.map((content) => {
         return (
-        <Link to={`details/${show.id}`} key={show.id} >
+        <Link to={`details/${content.id}`} key={content.id} >
             <div className='py-5 px-5 flex items-center justify-center transform transition duration-400 hover:scale-110 hover:ease-in-out ' >
-                <img src={show ? `${CARD_IMG}${show?.poster_path}` : ''} alt="poster" className='w-60' />
+                <img src={content ? `${CARD_IMG}${content?.poster_path}` : ''} alt="poster" className='w-60' />
             </div>
         </Link >
      

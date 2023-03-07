@@ -1,33 +1,29 @@
 import ReactPlayer from "react-player/lazy";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchVideoData, fetchData, removeData } from "../Features/InfoSlice";
+import { fetchVideoData, fetchData,removeData } from "../Features/InfoSlice";
 import { useParams } from "react-router-dom";
 import { ORIGINAL_IMG } from "../config";
 import Shimmer from "./Shimmer";
 import { addToList } from "../Features/ListSlice";
-export default function SingleContent() {
-    const { VideoData } = useSelector((state) => state.info);
-    const { SingleData } = useSelector((state) => state.info);
+export default function SingleContent({type}) {
+    const { VideoData, SingleData} = useSelector((state) => state.info);
     const { id } = useParams();
-
+    console.log(id)
     const dispatch = useDispatch();
     
-    // console.log("Video...", VideoData);
-    // console.log("data...", SingleData)
-
     useEffect(() => {
       
         setTimeout(() => {
-            dispatch(fetchVideoData(id));
-            dispatch(fetchData(id));
+                dispatch(fetchData(id,type))
+                dispatch(fetchVideoData(id,type))
         }, 1000);
        
 
         return () => {
             dispatch(removeData());
         }
-    }, []);
+    }, [dispatch,id,type]);
     const handleClick = (media) =>{
         dispatch(addToList(media));
     }

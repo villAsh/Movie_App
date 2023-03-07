@@ -4,12 +4,13 @@ import { useEffect } from "react";
 import Cards from "./Cards";
 import { addToList } from "../Features/ListSlice";
 // import { ORIGINAL_IMG } from "../../config";
-export default function Banner() {
+export default function Shows() {
 	const { shows } = useSelector((state) => state.shows);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchShows());
-    },[]);
+    },[dispatch]);
+
 	const hanldeClick = (media) => {
 		dispatch(addToList(media));
 	}
@@ -40,7 +41,7 @@ export default function Banner() {
 				</div>
 			</div>
 		</div>
-		<Cards shows={shows} />
+		<Cards media={shows} />
 		</>
 	
 	);
