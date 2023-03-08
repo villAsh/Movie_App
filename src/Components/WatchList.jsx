@@ -34,9 +34,9 @@ export default function WatchList() {
     ));
     return WatchList.length !== 0 ? (
         <>
-            <div className="bg-black md:min-h-[90.5vh] px-5">
+            <div className="bg-black md:min-h-[90.5vh] px-5 font-body">
                 <div className="flex justify-between items-center py-5">
-                    <h1 className="text-white text-4xl font-semibold font-serif">My List</h1>
+                    <h1 className="text-white text-4xl font-semibold">My List</h1>
                     <button onClick={handleClear}
                         className="
                 border border-red-500 rounded-md px-6 py-1 text-white transition 
@@ -54,8 +54,8 @@ export default function WatchList() {
 
         </>
     ) : (
-        <div className="bg-black md:min-h-[90.5vh] px-5 flex items-center justify-center">
-            <h1 className="text-white text-4xl font-semibold font-serif">List is Empty</h1>
+        <div className="bg-black md:min-h-[90.5vh] px-5 flex items-center justify-center font-body">
+            <h1 className="text-white text-4xl font-semibold ">List is Empty</h1>
         </div>
     );
 }

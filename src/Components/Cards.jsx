@@ -29,8 +29,8 @@ const responsive = {
     }
 };
 return (
-    <div className='md:px-4 bg-black bg-blend-darken font-serif'>
-        <h1 className='text-white text-4xl '>Trending Shows</h1>
+    <div className='md:px-4 bg-black bg-blend-darken font-body'>
+        <h1 className='text-white text-5xl '>Trending Shows</h1>
         <Carousel responsive={responsive} infinite={true}  >
             {ShowSlider}
         </Carousel>

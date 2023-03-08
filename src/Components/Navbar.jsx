@@ -8,24 +8,24 @@ export default function Navbar() {
                 <Link to="/">
                     <img src={logo} alt="logo" className='w-40 md:w-[18] mr-5' />
                 </Link>
-                <div className='text-gray-200 text-xl font-serif font-semibold hover:cursor-pointer'>
-                    <ul className='flex space-x-5'>
+                <div className='text-gray-200 text-2xl font-body font-semibold hover:cursor-pointer'>
+                    <ul className='flex md:space-x-7'>
                         <Link to='movies' >
                             <li className='relative group'>
                                 <span className='transition-all hover:text-white'>Movies</span>
-                                <span className="absolute -bottom-0 left-0 w-0 h-[2px] bg-red-600 transition-all group-hover:w-full"></span>
+                                <span className="absolute -bottom-0 left-0 w-0 h-[2px] bg-red transition-all group-hover:w-full"></span>
                             </li>
                         </Link>
                         <Link to='find'>
                             <li className='relative group'>
                                 <span className='transition-all hover:text-white'>Search</span>
-                                <span className="absolute -bottom-0 left-0 w-0 h-[2px] bg-red-600 transition-all group-hover:w-full"></span>
+                                <span className="absolute -bottom-0 left-0 w-0 h-[2px] bg-red transition-all group-hover:w-full"></span>
                             </li>
                         </Link>
                         <Link to='watchlist'>
                             <li className='relative group'>
                                 <span  className='transition-all hover:text-white'>Watch List</span>
-                                <span className="absolute -bottom-0 left-0 w-0 h-[2px] bg-red-600 transition-all group-hover:w-full"></span>
+                                <span className="absolute -bottom-0 left-0 w-0 h-[2px] bg-red transition-all group-hover:w-full"></span>
                             </li>
                         </Link>
                     </ul>
