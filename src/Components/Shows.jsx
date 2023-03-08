@@ -41,7 +41,7 @@ export default function Shows() {
 				</div>
 			</div>
 		</div>
-		<Cards media={shows} />
+		<Cards media={shows} title={true} />
 		</>
 	
 	);

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CARD_IMG } from '../config';
-export default function Cards({ media,type }) {
+export default function Cards({ media,title }) {
     console.log("Card...", media)
     const ShowSlider = media.map((content) => {
         return (
@@ -30,7 +30,11 @@ const responsive = {
 };
 return (
     <div className='md:px-4 bg-black bg-blend-darken font-body'>
-        <h1 className='text-white text-5xl '>Trending Shows</h1>
+        {
+            title ? (
+                <h1 className='text-white text-4xl font-semibold'>Trending</h1>
+            ): ''
+        }
         <Carousel responsive={responsive} infinite={true}  >
             {ShowSlider}
         </Carousel>

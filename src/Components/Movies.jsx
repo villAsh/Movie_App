@@ -42,7 +42,7 @@ export default function Movies() {
                     </div>
                 </div>
             </div>
-            <Cards media={movies} type="movies/" />
+            <Cards media={movies} title={true} />
         </>
     );
 }
