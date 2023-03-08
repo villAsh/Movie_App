@@ -39,5 +39,19 @@ export function fetchShows(){
     }
 }
 
+export function searchShows(show){
+    return async function searchShowsThunk(dispatch){
+        try{
+            const res = await axios.get(`
+            https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=1&query=${show}`);
+            const data = await res.data.results;
+            console.log(data)
+            dispatch(setShows(data));
+        }catch(err){
+            console.log(err)
+        }
+    }
+}
+
 export default ShowsSlice.reducer;
 export const { setShows , setStatus } = ShowsSlice.actions;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { BsSearch } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovies } from '../Features/MoviesSlice';
-import { fetchShows } from '../Features/ShowsSlice';
+import { fetchMovies, searchMovies } from '../Features/MoviesSlice';
+import { fetchShows, searchShows } from '../Features/ShowsSlice';
 import Cards from './Cards';
 
 
@@ -19,6 +19,7 @@ export default function Find() {
 
     const handleShow = (e) => {
         setShow(e.target.value);
+        dispatch(searchShows(show))
     }
 
     const ShowClick = () => {
@@ -27,6 +28,7 @@ export default function Find() {
 
     const handleMovie = (e) => {
         setMovie(e.target.value);
+        dispatch(searchMovies(movie));
     }
 
     const MovieClick = () => {

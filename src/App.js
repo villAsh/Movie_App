@@ -32,7 +32,23 @@ function App() {
 					}
 				/>
 				<Route
+					path="find/details/:id"
+					element={
+						<Suspense  fallback={<h1>Loading....</h1>}>
+							<SingleContent type="tv" />
+						</Suspense>
+					}
+				/>
+				<Route
 					path="movies/details/:id"
+					element={
+						<Suspense  fallback={<h1>Loading....</h1>}>
+							<SingleContent type="movie" />
+						</Suspense>
+					}
+				/>
+				<Route
+					path="find/details/:id"
 					element={
 						<Suspense  fallback={<h1>Loading....</h1>}>
 							<SingleContent type="movie" />
