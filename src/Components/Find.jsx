@@ -50,7 +50,7 @@ export default function Find() {
                 </div>
 
             </div>
-            <Cards media={shows} title={false} media_type="show"/>
+            <Cards media={shows} title={false} media_type="tv"/>
 
             <div className="md:px-4 text-white pt-5 flex justify-between items-center pb-5">
                 <h1 className="text-4xl font-body font-semibold">Search Movies</h1>

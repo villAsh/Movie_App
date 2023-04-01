@@ -60,8 +60,21 @@ export default function SingleContent({ type }) {
                 <h5 className="text-2xl font-body font-bold py-5 "><span>Tagline : </span>{SingleData?.tagline ? SingleData?.tagline : "Not provided"}</h5>
                 <h5 className="text-2xl font-body font-bold"><span>Genre : </span>{SingleData?.genres?.map((genre) => <span key={genre.id}>{genre.name} , </span>)}</h5>
                 <p className="text-xl font-body font-bold text-justify pt-3"><span className="text-2xl">Plot : </span>{SingleData?.overview}</p>
-                <h5 className="text-2xl font-body font-bold pt-3"><span>Number of Seasons : </span>{SingleData?.number_of_seasons}</h5>
-                <h5 className="text-2xl font-body font-bold pt-3"><span>Number of Episodes : </span>{SingleData?.number_of_episodes}</h5>
+                {
+                    SingleData?.number_of_seasons
+                     && SingleData.number_of_episodes ? (
+                        <>
+                            <h5 className="text-2xl font-body font-bold pt-3"><span>Number of Seasons : </span>{SingleData?.number_of_seasons}</h5>
+                            <h5 className="text-2xl font-body font-bold pt-3"><span>Number of Episodes : </span>{SingleData?.number_of_episodes}</h5>
+                        </>
+
+                    ) : (
+                    <>
+                          <h5 className="text-2xl font-body font-bold pt-3"><span>WatchTime: </span>{SingleData?.runtime} Minutes</h5>    
+                    </>
+                    )
+                }
+
             </div>
             <div className=" mt-5">
                 <ReactPlayer url={`https://www.youtube.com/watch?v=${VideoData?.key}`} className="mx-auto border-2 border-white" />
