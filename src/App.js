@@ -24,33 +24,41 @@ function App() {
 					}
 				/>
 				<Route
-					path="details/:id"
+					path="show/:id"
 					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
+						<Suspense fallback={<h1>Loading....</h1>}>
 							<SingleContent type="tv" />
 						</Suspense>
 					}
 				/>
 				<Route
-					path="find/details/:id"
+					path="movies/movie/:id"
 					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
-							<SingleContent type="tv" />
-						</Suspense>
-					}
-				/>
-				<Route
-					path="movies/details/:id"
-					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
+						<Suspense fallback={<h1>Loading....</h1>}>
 							<SingleContent type="movie" />
 						</Suspense>
 					}
 				/>
 				<Route
-					path="find/details/:id"
+					path="watchlist/:id"
 					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
+						<Suspense fallback={<h1>Loading....</h1>}>
+							<SingleContent type="movie" />
+						</Suspense>
+					}
+				/>
+				<Route
+					path={`find/show/:id`}
+					element={
+						<Suspense fallback={<h1>Loading....</h1>}>
+							<SingleContent type="movie" />
+						</Suspense>
+					}
+				/>
+				<Route
+					path={`find/movie/:id`}
+					element={
+						<Suspense fallback={<h1>Loading....</h1>}>
 							<SingleContent type="movie" />
 						</Suspense>
 					}
@@ -58,7 +66,7 @@ function App() {
 				<Route
 					path="watchlist"
 					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
+						<Suspense fallback={<h1>Loading....</h1>}>
 							<WatchList />
 						</Suspense>
 					}
@@ -66,7 +74,7 @@ function App() {
 				<Route
 					path="movies"
 					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
+						<Suspense fallback={<h1>Loading....</h1>}>
 							<Movies />
 						</Suspense>
 					}
@@ -74,7 +82,7 @@ function App() {
 				<Route
 					path="find"
 					element={
-						<Suspense  fallback={<h1>Loading....</h1>}>
+						<Suspense fallback={<h1>Loading....</h1>}>
 							<Find />
 						</Suspense>
 					}

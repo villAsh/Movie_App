@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CARD_IMG } from "../config";
 import { remove, clearList } from "../Features/ListSlice";
 
@@ -8,6 +8,7 @@ export default function WatchList() {
     const { WatchList } = useSelector((state) => state);
     // console.log(WatchList);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleRemove = (e, id) => {
         e.preventDefault();
         console.log(id)
@@ -17,20 +18,26 @@ export default function WatchList() {
     const handleClear = () => {
         dispatch(clearList());
     }
+    const nav = (id) => {
+        navigate(`${id}`)
+    }
     const list = WatchList.map((media) => (
-        <Link to={`/details/${media.id}`} key={media.id} >
-            <div className="p-5 transform transition duration-500 hover:scale-110 hover:ease-in-out">
-                <img src={`${CARD_IMG}${media?.poster_path}`} alt="poster" />
+        <div key={media.id}  >
+            <div onClick={() => nav(media.id)}>
+                <div className="p-5 transform transition duration-500 hover:scale-110 hover:ease-in-out">
+                    <img src={`${CARD_IMG}${media?.poster_path}`} alt="poster" />
+
+                </div>
 
             </div>
             <button
                 onClick={(e) => handleRemove(e, media.id)}
-                className=" border border-red-500 rounded-md px-6 py-1 text-white transition 
+                className="m-5 border border-red-500 rounded-md px-6 py-1 text-white transition 
                 hover:bg-red-500 hover:text-black"
             >
                 Remove
             </button>
-        </Link>
+        </div>
     ));
     return WatchList.length !== 0 ? (
         <>
