@@ -4,15 +4,15 @@ import { Provider } from "react-redux";
 import store from "./App/store";
 import Navbar from "./Components/Navbar";
 
-const SingleContent = lazy(() => import("./Components/SingleContent"));
-const WatchList = lazy(() => import("./Components/WatchList"));
-const Movies = lazy(() => import("./Components/Movies"));
-const Shows = lazy(() => import("./Components/Shows"));
-const Find = lazy(() => import("./Components/Find"));
+const SingleContent = lazy(() => import("./Components/pages/SingleContent"));
+const WatchList = lazy(() => import("./Components/pages/WatchList"));
+const Movies = lazy(() => import("./Components/pages/Movies"));
+const Shows = lazy(() => import("./Components/pages/Shows"));
+const Find = lazy(() => import("./Components/pages/Find"));
 
 const Loading = () => {
   return (
-    <div className="h-[80vh] w-screen flex items-center justify-center bg-black text-2xl">
+    <div className="h-screen flex items-center justify-center bg-black text-2xl">
       <div>
         <h1 className="text-5xl text-red font-bold">Loading....</h1>
       </div>
