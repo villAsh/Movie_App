@@ -30,7 +30,7 @@ export default function WatchList() {
             <button
                 onClick={(e) => handleRemove(e, media.id)}
                 className="m-5 border border-red-500 rounded-md px-6 py-1 text-white transition 
-                hover:bg-red-500 hover:text-black"
+                hover:bg-red-500 hover:text-red hover:bg-white"
             >
                 Remove
             </button>
