@@ -2,16 +2,18 @@ import ReactPlayer from "react-player/lazy";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVideoData, fetchData, removeData } from "../../Features/InfoSlice";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ORIGINAL_IMG } from "../../config";
 import Shimmer from "../Extras/Shimmer";
-import { addToList } from "../../Features/ListSlice";
+import { AddToWatchlist } from "../Helper/Helper";
+
+
 export default function SingleContent({ type }) {
     const { VideoData, SingleData } = useSelector((state) => state.info);
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
     const dispatch = useDispatch();
-
+    const nav = useNavigate();
     useEffect(() => {
         dispatch(fetchData(id, type))
         dispatch(fetchVideoData(id, type))
@@ -20,11 +22,14 @@ export default function SingleContent({ type }) {
             dispatch(removeData());
         }
     }, [dispatch, id, type]);
-    const handleClick = (media) => {
-        dispatch(addToList(media));
-    }
+    // const handleClick = (media) => {
+    //     dispatch(addToList(media));
+    // }
     return SingleData.length !== 0 ? (
-        <div className="px-20 bg-black pb-10">
+        <div className="px-10 sm:px-20 bg-black pb-10">
+            <div className="pt-3">
+                <button onClick={() => nav(-1)} className="text-white px-7 py-1 rounded-sm border border-red">Go Back</button>
+            </div>
             <div className="text-center font-body pt-5" >
                 <h1 className="text-5xl font-body font-bold  pb-5 text-white">{SingleData?.name || SingleData?.title}</h1>
                 <img
@@ -36,7 +41,7 @@ export default function SingleContent({ type }) {
                     }}
                 />
             </div>
-            <div className="space-x-2 mt-5">
+            <div className=" mt-5">
                 <button
                     className="py-1 px-7 rounded bg-white font-bold
                     hover:bg-slate-500 hover:bg-opacity-30 
@@ -44,8 +49,8 @@ export default function SingleContent({ type }) {
                 ">
                     <span>Play</span>
                 </button>
-                <button onClick={() => handleClick(SingleData)}
-                    className="py-1 px-7 rounded bg-white font-bold
+                <button onClick={() => AddToWatchlist(SingleData,dispatch)}
+                    className="sm:ml-2 mt-2 sm:mt-0 py-1 px-7 rounded bg-white font-bold
                   hover:bg-slate-500 hover:bg-opacity-30 
                   hover:text-white hover:delay-100 
                   ">
@@ -72,8 +77,8 @@ export default function SingleContent({ type }) {
                 }
 
             </div>
-            <div className=" mt-5">
-                <ReactPlayer url={`https://www.youtube.com/watch?v=${VideoData?.key}`} className="mx-auto border-2 border-white" />
+            <div className="flex items-center justify-center mt-5">
+                <ReactPlayer url={`https://www.youtube.com/watch?v=${VideoData?.key}`} className="border-2 border-white w-40" />
             </div>
         </div>
 

@@ -33,8 +33,32 @@ function App() {
             </Suspense>
           }
         />
+		        <Route
+          path="watchlist"
+          element={
+            <Suspense fallback={<Loading />}>
+              <WatchList />
+            </Suspense>
+          }
+        />
         <Route
-          path="show/:id"
+          path="movies"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Movies />
+            </Suspense>
+          }
+        />
+        <Route
+          path="find"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Find />
+            </Suspense>
+          }
+        />
+        <Route
+          path="tv/:id"
           element={
             <Suspense fallback={<Loading />}>
               <SingleContent type="tv" />
@@ -66,7 +90,7 @@ function App() {
           }
         />
         <Route
-          path={`find/tv/:id`}
+          path="find/tv/:id"
           element={
             <Suspense fallback={<Loading />}>
               <SingleContent type="tv" />
@@ -74,37 +98,14 @@ function App() {
           }
         />
         <Route
-          path={`find/movie/:id`}
+          path="find/movie/:id"
           element={
             <Suspense fallback={<Loading />}>
               <SingleContent type="movie" />
             </Suspense>
           }
         />
-        <Route
-          path="watchlist"
-          element={
-            <Suspense fallback={<Loading />}>
-              <WatchList />
-            </Suspense>
-          }
-        />
-        <Route
-          path="movies"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Movies />
-            </Suspense>
-          }
-        />
-        <Route
-          path="find"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Find />
-            </Suspense>
-          }
-        />
+
       </Routes>
     </Provider>
   );

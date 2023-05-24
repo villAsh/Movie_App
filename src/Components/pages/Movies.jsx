@@ -15,7 +15,7 @@ export default function Movies() {
     const banner = movies[Math.floor(Math.random() * 20)];
     return (
         <>
-            <Banner banner={banner} AddToWatchlist={AddToWatchlist} dispatch={dispatch} media_type="movie" />
+            <Banner banner={banner} AddToWatchlist={AddToWatchlist} dispatch={dispatch} path="movie" />
             <Cards media={movies} title={true} media_type="movie"/>
         </>
     );

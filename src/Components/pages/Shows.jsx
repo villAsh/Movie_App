@@ -16,8 +16,8 @@ export default function Shows() {
     const banner = shows[Math.floor(Math.random() * 20)];
     return (
 		<>
-		<Banner banner={banner} AddToWatchlist={AddToWatchlist} dispatch={dispatch} media_type="show"/>
-		<Cards media={shows} title={true} media_type="show" />
+		<Banner banner={banner} AddToWatchlist={AddToWatchlist} dispatch={dispatch} path="tv"/>
+		<Cards media={shows} title={true} media_type="tv" />
 		</>
 	
 	);
