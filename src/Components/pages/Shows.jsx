@@ -2,8 +2,8 @@ import { fetchShows } from "../../Features/ShowsSlice";
 import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Cards from "../Extras/Cards";
-import { addToList } from "../../Features/ListSlice";
 import Banner from "../Banner/Banner";
+import { AddToWatchlist } from "../Helper/Helper";
 
 // import { ORIGINAL_IMG } from "../../config";
 export default function Shows() {
@@ -13,13 +13,10 @@ export default function Shows() {
         dispatch(fetchShows());
     },[dispatch]);
 
-	const handleClick = (media) => {
-		dispatch(addToList(media));
-	}
     const banner = shows[Math.floor(Math.random() * 20)];
     return (
 		<>
-		   <Banner banner={banner} handleClick={handleClick} />
+		<Banner banner={banner} AddToWatchlist={AddToWatchlist} dispatch={dispatch} media_type="show"/>
 		<Cards media={shows} title={true} media_type="show" />
 		</>
 	

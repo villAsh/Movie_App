@@ -1,4 +1,6 @@
-export default function Banner({banner,handleClick}){
+
+
+export default function Banner({banner,AddToWatchlist, dispatch}){
     // const {over} = banner;
     return(
         <div className="h-[100vh] bg-black flex flex-col items-start justify-center md:px-4 font-body relative top-0" style={{
@@ -14,9 +16,13 @@ export default function Banner({banner,handleClick}){
                         className="bg-slate-500 bg-opacity-40 hover:bg-opacity-90 px-7 py-1 rounded-sm text-white">
                         <span>Play</span>
                     </button>
-                    <button onClick={() => handleClick(banner)}
+                    <button onClick={() => AddToWatchlist(banner,dispatch)}
                         className="bg-slate-500 bg-opacity-40 hover:bg-opacity-90 px-7 py-1 rounded-sm text-white">
                         <span>Watch List</span>
+                    </button>
+                    <button 
+                        className="bg-slate-500 bg-opacity-40 hover:bg-opacity-90 px-7 py-1 rounded-sm text-white">
+                        <span>More</span>
                     </button>
                 </div>
                 <div className="md:max-w-md mt-5">

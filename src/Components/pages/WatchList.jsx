@@ -22,7 +22,7 @@ export default function WatchList() {
         <div key={media.id}  >
             <Link to={`${media?.media_type === 'tv' || media.type ? 'tv' : 'movie'}/${media.id}`}>
                 <div className="p-5 transform transition duration-500 hover:scale-110 hover:ease-in-out">
-                    <img src={`${CARD_IMG}${media?.poster_path}`} alt="poster" />
+                    <img src={`${CARD_IMG}${media?.poster_path}`} alt="poster" className="md:h-96" />
 
                 </div>
 
