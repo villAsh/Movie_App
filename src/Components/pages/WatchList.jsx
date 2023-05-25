@@ -58,7 +58,7 @@ export default function WatchList() {
 
         </>
     ) : (
-        <div className="bg-black md:min-h-[90.5vh] px-5 flex items-center justify-center font-body">
+        <div className="bg-black h-screen md:min-h-[90.5vh] px-5 flex items-center justify-center font-body ">
             <h1 className="text-white text-4xl font-semibold ">List is Empty</h1>
         </div>
     );
